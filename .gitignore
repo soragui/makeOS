@@ -1,1 +1,4 @@
 binutils*
+gcc*
+.DS_store
+exportenv.sh
