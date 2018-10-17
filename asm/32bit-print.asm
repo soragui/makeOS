@@ -17,7 +17,7 @@ print_string_pm_loop:
     je print_string_pm_done
 
     mov [edx], ax ; store character 
-    add edx, 1
+    add ebx, 1   ; a misktake ebx not edx ...
     add edx, 2 
 
     jmp print_string_pm_loop

@@ -1,14 +1,15 @@
 
 [org 0x7C00] ; bootloader offset
 
-mov bp, 0x9000 ; set the stack
-mov sp, bp
+    mov bp, 0x9000 ; set the stack
+    mov sp, bp
 
-mov bx, MSG_REAL_MODE
-call print
+    mov bx, MSG_REAL_MODE
+    call print
+    call print_nl
 
-call switch_to_pm
-jmp $
+    call switch_to_pm
+    jmp $
 
 %include 'boot_sect_print.asm'
 %include '32bit-switch.asm'
@@ -21,8 +22,8 @@ BEGIN_PM:
     call print_string_pm
     jmp $
 
-MSG_REAL_MODE db 'Started in 16-bit real mode', 0
-MSG_PROT_MODE db 'Loaded 32-bit protected mode', 0
+MSG_REAL_MODE db "Started in 16-bit real mode", 0
+MSG_PROT_MODE db "Loaded 32-bit protected mode", 0
 
 ; bootsector
 times 510-($-$$) db 0
